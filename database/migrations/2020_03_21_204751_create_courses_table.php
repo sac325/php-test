@@ -17,7 +17,7 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('code',4);
-        //    $table->timestamps();
+            $table->timestamps();
         });
     }
 
