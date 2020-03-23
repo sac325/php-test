@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -85,16 +86,29 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+<button class="btn btn-info btn-xs" onclick="editar()" id="editar" >Editar</button>
+					
                 </div>
             </div>
         </div>
     </body>
+    
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+
+		$.ajaxSetup({
+			headers: {
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3BocC10ZXN0XC9wdWJsaWNcL3Rva2VuIiwiaWF0IjoxNTg0OTE2NzU0LCJleHAiOjE1ODQ5NzY3NTQsIm5iZiI6MTU4NDkxNjc1NCwianRpIjoiRHd5Y21JMDZCUzhvbTZkQSIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.mLd20iZ4nY2PARZRgOezf-jO3p64S2nCD5DI-vSev28"
+			}
+
+		});
+		function editar(){
+
+			$.post("{!! URL::to('/courses') !!}",{ name: "course 2", code: "0082" }, function(data){
+				console.log(data);
+
+			});
+        }
+        </script>
+
 </html>
